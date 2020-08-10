@@ -15,9 +15,10 @@ import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail
 import { MenuComponent } from './restaurant-detail/menu/menu.component';
 import { ShoppingCartComponent } from './restaurant-detail/shopping-cart/shopping-cart.component';
 import { MenuItemComponent } from './restaurant-detail/menu-item/menu-item.component';
+import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, HomeComponent, AboutComponent, RestaurantsComponent, RestaurantComponent, RestaurantDetailComponent, MenuComponent, ShoppingCartComponent, MenuItemComponent],
+  declarations: [AppComponent, HeaderComponent, HomeComponent, AboutComponent, RestaurantsComponent, RestaurantComponent, RestaurantDetailComponent, MenuComponent, ShoppingCartComponent, MenuItemComponent, ReviewsComponent],
   imports: [BrowserModule, HttpModule, RouterModule.forRoot(ROUTES)],
   providers: [RestaurantsService],
   bootstrap: [AppComponent],
