@@ -1,29 +1,25 @@
-# Meat - Angular App Starter
+# Meat - Aplicação Angular
 
 ## 1. Passos para começar
 
-### Clonando o Repositório
+### Clonagem do repositório
 
 `git clone https://github.com/momanhaes/meat-angular`
 
-### Instalando as Dependências
+### Instalação das dependências
 
 `npm install`
 
-### Inicializando o Servidor
+### Inicialização da aplicação
 
 `ng serve` ou `npm start`
 
-## 2. Iniciando o Backend
+## 2. Inicialização do backend
 
-### Instalando o json-server
+### Instalação do json-server
 
 `npm install -g json-server`
 
-### Iniciando o serviço (raiz da aplicação)
+### Inicialização do serviço do json-server (raiz da aplicação)
 
 `json-server db.json`
-
-## Créditos
-
-Todas as imagens usadas na aplicação são pertencentes a freepik.com
