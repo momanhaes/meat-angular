@@ -10,7 +10,7 @@ export class ShoppingCartComponent implements OnInit {
 
   ngOnInit() {}
 
-  items(): any[] {
+  get items(): any[] {
     return this.shoppingCartService.items;
   }
 

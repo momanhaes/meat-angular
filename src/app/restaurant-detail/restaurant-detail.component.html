@@ -1,6 +1,5 @@
 <section class="content-header">
-  <h1>
-  </h1>
+  <h1></h1>
 </section>
 
 <section class="content">
@@ -10,8 +9,10 @@
         <div class="box-header with-border">
           <i class="fa fa-home"></i>
 
-          <h3 class="box-title">{{ restaurant?.name }}</h3><span class="pull-right"><i class="fa fa-star"></i>
-            {{ restaurant?.rating }}</span>
+          <h3 class="box-title">{{ restaurant?.name }}</h3>
+          <span class="pull-right"
+            ><i class="fa fa-star"></i> {{ restaurant?.rating }}</span
+          >
         </div>
         <div class="box-body">
           <div class="col-sm-3 col-xs-12" *ngIf="restaurant">
@@ -28,10 +29,18 @@
           </dl>
         </div>
         <div class="box-footer detail-footer">
-          <a class="pull-left" routerLinkActive="detail-active" [routerLink]="['menu']">
+          <a
+            class="pull-left"
+            routerLinkActive="detail-active"
+            [routerLink]="['menu']"
+          >
             Menu
           </a>
-          <a class="pull-right" routerLinkActive="detail-active" [routerLink]="['reviews']">
+          <a
+            class="pull-right"
+            routerLinkActive="detail-active"
+            [routerLink]="['reviews']"
+          >
             Avaliações
           </a>
         </div>
