@@ -3,7 +3,7 @@ import { ModuleWithProviders, NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { OrderService } from "app/order/order.service";
 import { ShoppingCartService } from "app/restaurant-detail/shopping-cart/shopping-cart.service";
-import { RestaurantsService } from "app/restaurants/restaurant/restaurant.service";
+import { RestaurantsService } from "app/restaurants/restaurants.service";
 import { InputComponent } from "./input/input.component";
 import { NotificationService } from "./messages/snackbar/notification.service";
 import { SnackbarComponent } from "./messages/snackbar/snackbar.component";
