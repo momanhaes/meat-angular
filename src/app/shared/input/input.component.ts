@@ -17,11 +17,12 @@ export class InputComponent implements OnInit, AfterContentInit {
   @Input() label: string;
   @Input() message: any;
   @Input() errorMessage: any;
+  @Input() showTip = true;
 
   @ContentChild(NgModel) model: NgModel;
   @ContentChild(FormControlName) control: FormControlName;
 
-  constructor() {}
+  constructor() { }
 
   get hasSuccess(): boolean {
     return this.input.valid && (this.input.dirty || this.input.touched);
@@ -31,7 +32,7 @@ export class InputComponent implements OnInit, AfterContentInit {
     return this.input.invalid && (this.input.dirty || this.input.touched);
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   ngAfterContentInit() {
     this.input = this.model || this.control;

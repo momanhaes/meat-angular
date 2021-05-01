@@ -11,6 +11,7 @@ import {
   AbstractControl,
 } from "@angular/forms";
 import { EMAIL_PATTERN, NUMBER_PATTERN } from "app/shared/patterns";
+import "rxjs/add/operator/do";
 
 @Component({
   selector: "mt-order",
@@ -18,8 +19,8 @@ import { EMAIL_PATTERN, NUMBER_PATTERN } from "app/shared/patterns";
 })
 export class OrderComponent implements OnInit {
   public orderForm: FormGroup;
-  // Valor do frete mockado
   public delivery: number = 8;
+  public orderID: string;
 
   public paymentOptions: RadioOption[] = [
     {
@@ -88,6 +89,10 @@ export class OrderComponent implements OnInit {
     return undefined;
   }
 
+  isOrderCompleted() {
+    return this.orderID !== undefined;
+  }
+
   itemsValue(): number {
     return this.orderService.itemsValue();
   }
@@ -116,9 +121,14 @@ export class OrderComponent implements OnInit {
     order.orderItems = this.cartItems().map(
       (item: CartItem) => new OrderItem(item.quantity, item.menuItem.id)
     );
-    this.orderService.checkOrder(order).subscribe((orderId: string) => {
-      this.router.navigate(["/order-summary"]);
-      this.orderService.clear();
-    });
+    this.orderService
+      .checkOrder(order)
+      .do((orderID: string) => {
+        this.orderID = orderID;
+      })
+      .subscribe((orderId: string) => {
+        this.router.navigate(["/order-summary"]);
+        this.orderService.clear();
+      });
   }
 }
