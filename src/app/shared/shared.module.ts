@@ -12,6 +12,8 @@ import { NotificationService } from "./messages/snackbar/notification.service";
 import { SnackbarComponent } from "./messages/snackbar/snackbar.component";
 import { RadioComponent } from "./radio/radio.component";
 import { RatingComponent } from "./rating/rating.component";
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { AuthInterceptor } from "app/security/auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ export class SharedModule {
         LoginService,
         LoggedInGuard,
         LeaveOrderGuard,
+        { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
       ],
     };
   }
