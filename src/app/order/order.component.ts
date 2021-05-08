@@ -4,6 +4,8 @@ import { CartItem } from "app/restaurant-detail/shopping-cart/cart-item.model";
 import { RadioOption } from "app/shared/radio/radio-option.model";
 import { Order, OrderItem } from "./order.model";
 import { OrderService } from "./order.service";
+import { EMAIL_PATTERN, NUMBER_PATTERN } from "app/shared/patterns";
+import { tap } from "rxjs/operators";
 import {
   FormGroup,
   FormBuilder,
@@ -11,8 +13,6 @@ import {
   AbstractControl,
   FormControl,
 } from "@angular/forms";
-import { EMAIL_PATTERN, NUMBER_PATTERN } from "app/shared/patterns";
-import "rxjs/add/operator/do";
 
 @Component({
   selector: "mt-order",
@@ -42,7 +42,7 @@ export class OrderComponent implements OnInit {
     private orderService: OrderService,
     private router: Router,
     private formBuilder: FormBuilder
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.orderForm = new FormGroup(
@@ -70,7 +70,7 @@ export class OrderComponent implements OnInit {
         optionalAddress: new FormControl(""),
         paymentOption: new FormControl("", [Validators.required]),
       },
-      { validators: [OrderComponent.equalsTo], updateOn: 'blur' }
+      { validators: [OrderComponent.equalsTo], updateOn: "blur" }
     );
   }
 
@@ -124,9 +124,11 @@ export class OrderComponent implements OnInit {
     );
     this.orderService
       .checkOrder(order)
-      .do((orderID: string) => {
-        this.orderID = orderID;
-      })
+      .pipe(
+        tap((orderID: string) => {
+          this.orderID = orderID;
+        })
+      )
       .subscribe((orderId: string) => {
         this.router.navigate(["/order-summary"]);
         this.orderService.clear();
