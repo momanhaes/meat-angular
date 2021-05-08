@@ -21,7 +21,6 @@
               "src/favicon.ico"
             ],
             "styles": [
-              "node_modules/font-awesome/css/font-awesome.min.css",
               "node_modules/admin-lte/bootstrap/css/bootstrap.min.css",
               "node_modules/admin-lte/dist/css/AdminLTE.min.css",
               "node_modules/admin-lte/dist/css/skins/skin-red.min.css",
@@ -84,7 +83,6 @@
               "node_modules/admin-lte/dist/js/app.min.js"
             ],
             "styles": [
-              "node_modules/font-awesome/css/font-awesome.min.css",
               "node_modules/admin-lte/bootstrap/css/bootstrap.min.css",
               "node_modules/admin-lte/dist/css/AdminLTE.min.css",
               "node_modules/admin-lte/dist/css/skins/skin-red.min.css",

@@ -9,6 +9,7 @@ import {
   FormBuilder,
   Validators,
   AbstractControl,
+  FormControl,
 } from "@angular/forms";
 import { EMAIL_PATTERN, NUMBER_PATTERN } from "app/shared/patterns";
 import "rxjs/add/operator/do";
@@ -41,35 +42,35 @@ export class OrderComponent implements OnInit {
     private orderService: OrderService,
     private router: Router,
     private formBuilder: FormBuilder
-  ) {}
+  ) { }
 
   ngOnInit() {
-    this.orderForm = this.formBuilder.group(
+    this.orderForm = new FormGroup(
       {
-        name: this.formBuilder.control("", [
+        name: new FormControl("", [
           Validators.required,
           Validators.minLength(3),
         ]),
-        email: this.formBuilder.control("", [
+        email: new FormControl("", [
           Validators.required,
           Validators.pattern(EMAIL_PATTERN),
         ]),
-        emailConfirmation: this.formBuilder.control("", [
+        emailConfirmation: new FormControl("", [
           Validators.required,
           Validators.pattern(EMAIL_PATTERN),
         ]),
-        address: this.formBuilder.control("", [
+        address: new FormControl("", [
           Validators.required,
           Validators.minLength(3),
         ]),
-        number: this.formBuilder.control("", [
+        number: new FormControl("", [
           Validators.required,
           Validators.pattern(NUMBER_PATTERN),
         ]),
-        optionalAddress: this.formBuilder.control(""),
-        paymentOption: this.formBuilder.control("", [Validators.required]),
+        optionalAddress: new FormControl(""),
+        paymentOption: new FormControl("", [Validators.required]),
       },
-      { validator: OrderComponent.equalsTo }
+      { validators: [OrderComponent.equalsTo], updateOn: 'blur' }
     );
   }
 
