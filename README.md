@@ -22,4 +22,9 @@
 
 ### Inicialização do serviço do json-server (raiz da aplicação)
 
-`json-server db.json` ou `node backend/dist/server.js`
+`node backend/dist/server.js`
+
+### Credenciais para login
+
+Login: `momanhaes@gmail.com`
+Senha: `123456`
