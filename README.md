@@ -22,4 +22,4 @@
 
 ### Inicialização do serviço do json-server (raiz da aplicação)
 
-`json-server db.json`
+`json-server db.json` ou `node backend/dist/server.js`
